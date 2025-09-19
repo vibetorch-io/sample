@@ -13,21 +13,6 @@ interface DraggableItem {
   definition: string
 }
 
-const InstructionsPanel = () => {
-  return <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
-        <div className="text-center p-8 rounded-2xl" data-component="InstructionsPanel">
-          <h1 className="text-2xl font-semibold text-neutral-300 mb-6 tracking-tight">
-            Explore <span className="font-mono bg-neutral-900/80 backdrop-blur px-2 py-1 rounded text-blue-400">{'<VibeTorchInspector />'}</span>
-          </h1>
-          <div className="text-neutral-600 text-sm space-y-1">
-            <div>Press <span className="text-neutral-500 font-mono bg-neutral-900/80 backdrop-blur px-1.5 py-0.5 rounded">Option</span> to activate inspector</div>
-            <div>→ Click component to select</div>
-            <div>→ Press <span className="text-neutral-500 font-mono bg-neutral-900/80 backdrop-blur px-1.5 py-0.5 rounded">Enter</span> to copy</div>
-          </div>
-        </div>
-      </div>
-}
-
 export default function Home() {
   const [items, setItems] = useState<DraggableItem[]>([])
   const [dragging, setDragging] = useState<string | null>(null)
@@ -284,7 +269,18 @@ export default function Home() {
       </div>
 
       {/* Instructions - Now as inspectable component */}
-      {InstructionsPanel()}
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
+        <div className="text-center p-8 rounded-2xl" data-component="InstructionsPanel">
+          <h1 className="text-2xl font-semibold text-neutral-300 mb-6 tracking-tight">
+            Explore <span className="font-mono bg-neutral-900/80 backdrop-blur px-2 py-1 rounded text-blue-400">{'<VibeTorchInspector />'}</span>
+          </h1>
+          <div className="text-neutral-600 text-sm space-y-1">
+            <div>Press <span className="text-neutral-500 font-mono bg-neutral-900/80 backdrop-blur px-1.5 py-0.5 rounded">Option</span> to activate inspector</div>
+            <div>→ Click component to select</div>
+            <div>→ Press <span className="text-neutral-500 font-mono bg-neutral-900/80 backdrop-blur px-1.5 py-0.5 rounded">Enter</span> to copy</div>
+          </div>
+        </div>
+      </div>
 
       {/* Top Left Title */}
       <div className="absolute top-4 left-4 z-10">
